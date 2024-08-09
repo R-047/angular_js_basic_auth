@@ -1,0 +1,36 @@
+<p>user-identification-form works!</p>
+<div>
+  <h2>Contact Information</h2>
+  <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+    <div>
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        [(ngModel)]="userInfoModel.email"
+        email
+      />
+    </div>
+    <div>
+      <label for="phone">Phone:</label>
+      <input
+        type="tel"
+        id="phone"
+        name="phone"
+        [(ngModel)]="userInfoModel.phone_number"
+        pattern="^[0-9]{10}$"
+      />
+    </div>
+    <div *ngIf="!isFormValid()" style="color: red;">
+      Please provide only one: either an email or a phone number, not both.
+    </div>
+    <button type="submit" [disabled]="myForm.invalid">Submit</button>
+  </form>
+
+  <div *ngIf="loading$ | async" style="color: red;">
+      loading...
+    </div>
+</div>
+
+
