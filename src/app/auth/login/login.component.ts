@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AuthUser } from '../auth-user.model';
 import { fetchUserName, formSubmitted, redirectToHome, resetLoginForm, updateFormFields } from '../../state/login/login.actions';
 import { MatDialog } from '@angular/material/dialog';
-import { SuccessModalComponent } from './success-modal/success-modal.component';
+import { SuccessModalComponent } from './components/success-modal/success-modal.component';
 
 @Component({
   selector: 'app-login',

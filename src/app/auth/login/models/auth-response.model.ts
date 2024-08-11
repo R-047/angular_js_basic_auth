@@ -1,5 +1,5 @@
-import {DetailedUserInfo} from '../signup/detailed-user-info.model'
-import { Response } from "../../shared/models/response.model";
+import {DetailedUserInfo} from '../../signup/models/detailed-user-info.model'
+import { Response } from "../../../shared/models/response.model";
 export interface AuthResponseModel extends Response{
   basic_user_info?: {
     email? : string,

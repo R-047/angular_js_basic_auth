@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
-import { SuccessModalComponent } from './success-modal/success-modal.component';
+import { SuccessModalComponent } from './components/success-modal/success-modal.component';
 import { BrandGraphicsComponent } from '../../shared/components/brand-graphics/brand-graphics.component';
 
 

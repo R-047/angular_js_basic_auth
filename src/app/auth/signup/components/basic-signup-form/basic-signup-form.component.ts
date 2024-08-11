@@ -1,14 +1,14 @@
 import { Component, OnInit, EventEmitter, Output} from '@angular/core';
-import { SignupState } from '../../../state/signup/singup.reducer';
-import { AppState } from '../../../state/app.state';
+import { SignupState } from '../../../../state/signup/singup.reducer';
+import { AppState } from '../../../../state/app.state';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Observable, take } from 'rxjs';
-import { showDetailedUserForm, updateBasicFormFields } from '../../../state/signup/signup.actions';
-import { BasicUserInfo } from '../basic-user-info.model';
-import { selectBasicUserInfo } from '../../../state/signup/signup.selectors';
+import { showDetailedUserForm, updateBasicFormFields } from '../../../../state/signup/signup.actions';
+import { BasicUserInfo } from '../../models/basic-user-info.model';
+import { selectBasicUserInfo } from '../../../../state/signup/signup.selectors';
 import { ActivatedRoute } from '@angular/router';
-import { Form } from '../../../state/signup/singup.reducer';
+import { Form } from '../../../../state/signup/singup.reducer';
 
 
 @Component({

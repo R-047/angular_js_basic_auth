@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Organization } from '../auth/signup/organization.model';
+import { Organization } from '../auth/signup/models/organization.model';
 import { Observable, of } from 'rxjs';
-import { OrganizationDetailsResponse } from '../auth/signup/organization-details-response.model';
+import { OrganizationDetailsResponse } from '../auth/signup/models/organization-details-response.model';
 
 @Injectable({
   providedIn: 'root'

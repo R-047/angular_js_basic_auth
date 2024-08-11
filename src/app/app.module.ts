@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginModule } from './auth/login/login.module';
 import { SignupModule } from './auth/signup/signup.module';
-import { DashboardModule } from './dashboard/dashboard.module';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -25,7 +24,6 @@ import { LoginEffects } from './state/login/login.effects';
     AppRoutingModule,
     LoginModule,
     SignupModule,
-    DashboardModule,
     StoreModule.forRoot({
       userIdentification: userIdentificationReducer,
       signupState: signUpReducer,

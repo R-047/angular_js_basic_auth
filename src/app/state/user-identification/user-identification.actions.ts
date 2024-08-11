@@ -1,5 +1,5 @@
 import { createAction, props } from "@ngrx/store";
-import { UserIdentifier } from "../../home/user-identifier.model";
+import { UserIdentifier } from "../../home/models/user-identifier.model";
 
 export const identifyUser = createAction(
   '[User Info Page] check if user exist or not',

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { UserIdentifier } from '../user-identifier.model';
+import { UserIdentifier } from '../../models/user-identifier.model';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { selectUserIdentificationStatus } from '../../state/user-identification/user-identification.selectors';
-import { identifyUser } from '../../state/user-identification/user-identification.actions';
-import { AppState } from '../../state/app.state';
+import { selectUserIdentificationStatus } from '../../../state/user-identification/user-identification.selectors';
+import { identifyUser } from '../../../state/user-identification/user-identification.actions';
+import { AppState } from '../../../state/app.state';
 
 @Component({
   selector: 'app-user-identification-form',

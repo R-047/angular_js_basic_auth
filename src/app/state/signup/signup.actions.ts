@@ -1,10 +1,10 @@
 import { createAction, props } from "@ngrx/store";
-import { UserInfo } from "../../auth/signup/user-info.model";
+import { UserInfo } from "../../auth/signup/models/user-info.model";
 import { SignupState } from "./singup.reducer";
-import { BasicUserInfo } from "../../auth/signup/basic-user-info.model";
-import { Organization } from "../../auth/signup/organization.model";
-import { DetailedUserInfo } from "../../auth/signup/detailed-user-info.model";
-import { UserIdentifier } from "../../home/user-identifier.model";
+import { BasicUserInfo } from "../../auth/signup/models/basic-user-info.model";
+import { Organization } from "../../auth/signup/models/organization.model";
+import { DetailedUserInfo } from "../../auth/signup/models/detailed-user-info.model";
+import { UserIdentifier } from "../../home/models/user-identifier.model";
 
 
 

@@ -11,7 +11,6 @@ import {
 import { of, from, pipe } from 'rxjs';
 import { switchMap, map, catchError, withLatestFrom, mergeMap } from 'rxjs/operators';
 import { OrganizationService } from '../../services/organization.service';
-import { OrganizationDetailsResponse } from '../../auth/signup/organization-details-response.model'
 import { Store, select} from '@ngrx/store';
 import { AppState } from '../app.state';
 import { selectUserInfo } from './signup.selectors';

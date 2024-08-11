@@ -1,13 +1,13 @@
 import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { selectAllowedOrganizations, selectDesignations, selectDetailedUserInfo } from '../../../state/signup/signup.selectors';
-import { AppState } from '../../../state/app.state';
+import { selectAllowedOrganizations, selectDesignations, selectDetailedUserInfo } from '../../../../state/signup/signup.selectors';
+import { AppState } from '../../../../state/app.state';
 import { Store } from '@ngrx/store';
-import { loadOrganizationDetails, registerUser, updateDetailedFormFields } from '../../../state/signup/signup.actions';
+import { loadOrganizationDetails, registerUser, updateDetailedFormFields } from '../../../../state/signup/signup.actions';
 import { Observable, startWith, map, take  } from 'rxjs';
-import { Organization } from '../organization.model';
-import { DetailedUserInfo } from '../detailed-user-info.model';
-import { Form } from '../../../state/signup/singup.reducer';
+import { Organization } from '../../models/organization.model';
+import { DetailedUserInfo } from '../../models/detailed-user-info.model';
+import { Form } from '../../../../state/signup/singup.reducer';
 
 @Component({
   selector: 'app-detailed-signup-form',
@@ -42,18 +42,13 @@ export class DetailedSignupFormComponent implements OnInit{
     });
 
     this.form.get('organization.organization_id')?.valueChanges
-      .pipe(startWith(''), map(value => this.validateOrganization(value)))
-      .subscribe();
-
-    this.form.get('organization.organization_name')?.valueChanges
-      .pipe(startWith(''), map(value => this.validateOrganization(this.form.get('organization.organization_id')?.value)))
+      .pipe(startWith(null), map(value => this.validateOrganization(value)))
       .subscribe();
   }
 
 
   validateOrganization(id: string) {
     this.organizationsList$.subscribe(orgList => {
-      if(!id || id == '') return
       const organization = orgList.find(org => org.organization_id?.toString() === id);
       if (!organization || organization.organization_name != this.form.get('organization.organization_name')?.value) {
         this.invalidOrganizationIdError = 'Unkown organization-id';

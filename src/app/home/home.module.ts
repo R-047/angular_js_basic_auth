@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
-import { UserIdentificationFormComponent } from './user-identification-form/user-identification-form.component';
+import { UserIdentificationFormComponent } from './components/user-identification-form/user-identification-form.component';
 import {FormsModule} from '@angular/forms';
 import { BrandGraphicsComponent } from '../shared/components/brand-graphics/brand-graphics.component';
 

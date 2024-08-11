@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 
-import { UserInfo } from '../auth/signup/user-info.model';
+import { UserInfo } from '../auth/signup/models/user-info.model';
 import { Response } from '../shared/models/response.model';
 import { of, delay, map, Observable } from 'rxjs';
-import { UserIdentifier } from '../home/user-identifier.model';
-import { UserIdentificationResponse } from '../home/user-identification-response.model';
+import { UserIdentifier } from '../home/models/user-identifier.model';
+import { UserIdentificationResponse } from '../home/models/user-identification-response.model';
 import { userExist } from '../state/user-identification/user-identification.actions';
 import { AuthUser } from '../auth/auth-user.model';
-import { AuthResponseModel } from '../auth/login/auth-response.model';
+import { AuthResponseModel } from '../auth/login/models/auth-response.model';
 
 @Injectable({
   providedIn: 'root'

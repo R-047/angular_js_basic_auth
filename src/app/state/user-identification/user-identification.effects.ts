@@ -9,7 +9,7 @@ import {
 import { of, from, pipe } from 'rxjs';
 import { switchMap, map, catchError, withLatestFrom, mergeMap } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { UserIdentificationResponse } from '../../home/user-identification-response.model';
+import { UserIdentificationResponse } from '../../home/models/user-identification-response.model';
 import { UserService } from '../../services/user.service';
 import { setUserName } from '../login/login.actions';
 

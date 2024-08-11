@@ -1,8 +1,8 @@
 import { createAction, props } from "@ngrx/store";
 import { AuthUser } from "../../auth/auth-user.model";
-import { UserIdentifier } from "../../home/user-identifier.model";
-import { UserInfo } from "../../auth/signup/user-info.model";
-import { DetailedUserInfo } from "../../auth/signup/detailed-user-info.model";
+import { UserIdentifier } from "../../home/models/user-identifier.model";
+import { UserInfo } from "../../auth/signup/models/user-info.model";
+import { DetailedUserInfo } from "../../auth/signup/models/detailed-user-info.model";
 
 
 export const updateFormFields = createAction(

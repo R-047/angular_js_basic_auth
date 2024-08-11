@@ -15,7 +15,7 @@ import { AppState } from '../app.state';
 import { selectAuthUser } from './login.selectors';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
-import { UserIdentificationResponse } from '../../home/user-identification-response.model';
+import { UserIdentificationResponse } from '../../home/models/user-identification-response.model';
 
 
 @Injectable()

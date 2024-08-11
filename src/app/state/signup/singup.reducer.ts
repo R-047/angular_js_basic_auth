@@ -1,6 +1,6 @@
-import { BasicUserInfo } from "../../auth/signup/basic-user-info.model";
-import { DetailedUserInfo } from "../../auth/signup/detailed-user-info.model";
-import { Organization } from "../../auth/signup/organization.model";
+import { BasicUserInfo } from "../../auth/signup/models/basic-user-info.model";
+import { DetailedUserInfo } from "../../auth/signup/models/detailed-user-info.model";
+import { Organization } from "../../auth/signup/models/organization.model";
 import { createReducer, on } from "@ngrx/store";
 import { organizationDetailsLoaded, showBasicUserForm, showDetailedUserForm, registerUser, updateBasicFormFields, updateDetailedFormFields, userRegisteredSuccesfully } from "./signup.actions";
 

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { BasicSignupFormComponent } from './basic-signup-form/basic-signup-form.component';
-import { DetailedSignupFormComponent } from './detailed-signup-form/detailed-signup-form.component';
+import { BasicSignupFormComponent } from './components/basic-signup-form/basic-signup-form.component';
+import { DetailedSignupFormComponent } from './components/detailed-signup-form/detailed-signup-form.component';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { Form } from '../../state/signup/singup.reducer';

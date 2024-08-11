@@ -1,4 +1,4 @@
-import { UserIdentifier } from "../../home/user-identifier.model";
+import { UserIdentifier } from "../../home/models/user-identifier.model";
 import { identifyUser, userDoesNotExist, userExist, userCheckFailure } from "./user-identification.actions";
 import { createReducer, on } from "@ngrx/store";
 

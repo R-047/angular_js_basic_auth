@@ -1,8 +1,8 @@
 import { on, createReducer} from "@ngrx/store";
 import { AuthUser } from "../../auth/auth-user.model";
 import { updateFormFields, formSubmitted, loginSuccess, loginFailed, resetLoginForm, setUserName} from "./login.actions";
-import { UserInfo } from "../../auth/signup/user-info.model";
-import { DetailedUserInfo } from "../../auth/signup/detailed-user-info.model";
+import { UserInfo } from "../../auth/signup/models/user-info.model";
+import { DetailedUserInfo } from "../../auth/signup/models/detailed-user-info.model";
 
 
 export interface LoginState{
