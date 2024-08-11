@@ -1,1 +1,49 @@
 <p>login works!</p>
+
+<form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+
+  <div *ngIf="loginForm.get('email')?.enabled">
+    <label for="email">Email</label>
+    <input
+      id="email"
+      formControlName="email"
+      type="email"
+    />
+    <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+      A valid email is required.
+    </div>
+  </div>
+
+  <div *ngIf="loginForm.get('phone_number')?.enabled">
+    <label for="phoneNumber">Phone Number</label>
+    <input
+      id="phone_number"
+      formControlName="phone_number"
+      type="text"
+    />
+    <div *ngIf="loginForm.get('phone_number')?.invalid && loginForm.get('phone_number')?.touched">
+      A valid phone number is required.
+    </div>
+  </div>
+
+
+  <div>
+    <label for="password">Password</label>
+    <input
+      id="password"
+      formControlName="password"
+      type="password"
+    />
+    <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+      Password is required and should be at least 8 characters.
+    </div>
+
+    <div *ngIf="loginStatus$ | async as login_status">
+      <div *ngIf="login_status === 'failed'">
+        Incorrect password. Please try again
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="loginForm.invalid">Submit</button>
+</form>

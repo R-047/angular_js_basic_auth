@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { SignupComponent } from './signup.component';
 import { BasicSignupFormComponent } from './basic-signup-form/basic-signup-form.component';
@@ -10,10 +11,12 @@ import { DetailedSignupFormComponent } from './detailed-signup-form/detailed-sig
   declarations: [
     SignupComponent,
     BasicSignupFormComponent,
-    DetailedSignupFormComponent
+    DetailedSignupFormComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class SignupModule { }

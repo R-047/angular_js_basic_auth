@@ -1,13 +1,13 @@
-import { UserInfo } from "../../user-info.model";
+import { UserIdentifier } from "../../home/user-identifier.model";
 import { identifyUser, userDoesNotExist, userExist, userCheckFailure } from "./user-identification.actions";
 import { createReducer, on } from "@ngrx/store";
 
-export interface UserInfoState {
+export interface UserIdentificationState {
   status: boolean;
   error: string;
 }
 
-export const initialState: UserInfoState = {
+export const initialState: UserIdentificationState = {
   status: false,
   error: ''
 }

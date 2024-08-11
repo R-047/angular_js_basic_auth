@@ -1,3 +1,8 @@
 <p>signup works!</p>
-<app-basic-signup-form></app-basic-signup-form>
-<app-detailed-signup-form>
+
+<div *ngIf="currentForm$ | async as current_form">
+  <app-basic-signup-form *ngIf="current_form === form.BASIC_USER_INFO_FORM"></app-basic-signup-form>
+
+  <button *ngIf="current_form === form.DETAILED_USER_INFO_FORM" (click)="goToBasicForm()">Back</button>
+  <app-detailed-signup-form *ngIf="current_form === form.DETAILED_USER_INFO_FORM"></app-detailed-signup-form>
+</div>

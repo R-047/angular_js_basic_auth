@@ -1,6 +1,6 @@
 import { createSelector, createFeatureSelector } from '@ngrx/store';
 import { AppState } from '../app.state';
-import { UserInfoState } from './user-identification.reducer';
+import { UserIdentificationState } from './user-identification.reducer';
 
 export const featureKey = 'app';
 
@@ -13,5 +13,5 @@ export const featureKey = 'app';
 export const selectUserIdentification = (state: AppState) => state.userIdentification;
 export const selectUserIdentificationStatus = createSelector(
   selectUserIdentification,
-  (state: UserInfoState) => state.status
+  (state: UserIdentificationState) => state.status
 );
