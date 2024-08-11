@@ -4,6 +4,7 @@ import { LoginComponent } from './login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SuccessModalComponent } from './success-modal/success-modal.component';
+import { BrandGraphicsComponent } from '../../shared/components/brand-graphics/brand-graphics.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { SuccessModalComponent } from './success-modal/success-modal.component';
     FormsModule,
     ReactiveFormsModule,
     MatDialogModule,
+    BrandGraphicsComponent
   ]
 })
 export class LoginModule { }

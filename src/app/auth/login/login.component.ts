@@ -1,12 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { selectAuthUser, selectLoginState, selectLoginStatus } from '../../state/login/login.selectors';
+import { selectAuthUser, selectLoginState, selectLoginStatus, selectUserName } from '../../state/login/login.selectors';
 import { AppState } from '../../state/app.state';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Observable, take } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { AuthUser } from '../auth-user.model';
-import { formSubmitted, redirectToHome, resetLoginForm, updateFormFields } from '../../state/login/login.actions';
+import { fetchUserName, formSubmitted, redirectToHome, resetLoginForm, updateFormFields } from '../../state/login/login.actions';
 import { MatDialog } from '@angular/material/dialog';
 import { SuccessModalComponent } from './success-modal/success-modal.component';
 
@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit, OnDestroy{
   authUserInfo$: Observable<AuthUser> = this.store.select(selectAuthUser)
   loginForm: FormGroup
   loginStatus$: Observable<string | null | undefined> = this.store.select(selectLoginStatus)
+  userName$: Observable<string | null | undefined> = this.store.select(selectUserName)
 
   constructor(
     private store: Store<AppState>,
@@ -35,8 +36,8 @@ export class LoginComponent implements OnInit, OnDestroy{
 
   ngOnInit(): void {
     this.authUserInfo$.pipe(take(1)).subscribe(user_info => {
-
         this.route.queryParams.subscribe(params => {
+          this.store.dispatch(fetchUserName({email: params['email'], phone_number: params['phone_number']}))
           if (params['email']) {
             this.loginForm.patchValue({...user_info, email:params['email'] || user_info.email});
             this.loginForm.get('email')?.enable();
@@ -65,17 +66,21 @@ export class LoginComponent implements OnInit, OnDestroy{
       this.store.dispatch(updateFormFields(value));
     });
 
+    this.userName$.subscribe(value => {
+      console.log("loggin in login comp: ", value)
+    })
+
     this.loginStatus$.subscribe(value => {
       if(value == 'success'){
         this.openDialog()
       }
     })
+
   }
 
 
     ngOnDestroy(): void {
       this.store.dispatch(resetLoginForm())
-
     }
 
     onLogin(){

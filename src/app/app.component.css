@@ -1,0 +1,9 @@
+:host {
+  background: linear-gradient(180deg, #cbd5f2 0%, #7da6df 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}

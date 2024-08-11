@@ -49,7 +49,7 @@ export class UserService {
 
   checkIfUserExist(userIdentifiers: UserIdentifier): Observable<UserIdentificationResponse> {
         if(userIdentifiers.email == null && userIdentifiers.phone_number == null) {
-          return of({success: false, error: "error occured, provide email or phone", userExist:false }).pipe(delay(2000))
+          return of({success: false, error: "error occured, provide email or phone", user_exist:false, user_name: null }).pipe(delay(2000))
         }
         const users = JSON.parse(localStorage.getItem(`${UserService.userDB}`) as string || '[]')
         const user = users.find((user: UserInfo) => (user.basic_user_info.email && user.basic_user_info.email === userIdentifiers.email)
@@ -57,9 +57,9 @@ export class UserService {
 
 
         if(user){
-          return of({success: true, error: "", userExist: true}).pipe(delay(2000))
+          return of({success: true, error: "", user_exist: true, user_name: user.basic_user_info.user_name}).pipe(delay(2000))
         }else{
-          return of({success: true, error: "", userExist:false }).pipe(delay(2000))
+          return of({success: true, error: "", user_exist:false, user_name: null}).pipe(delay(2000))
         }
   }
 

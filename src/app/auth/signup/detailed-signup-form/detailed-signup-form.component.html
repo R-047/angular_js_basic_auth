@@ -1,24 +1,23 @@
-<p>detailed-signup-form works!</p>
 <!-- components/user-info-form/user-info-form.component.html -->
-<form [formGroup]="form" (ngSubmit)="onNext()">
+<form class="form-container" [formGroup]="form" (ngSubmit)="onNext()">
 
   <div formGroupName="organization">
     <div>
-      <label for="organization_name">Organization Name:</label>
-      <input id="organization_name" formControlName="organization_name" type="text">
+      <label class="form-label" for="organization_name">Organization Name:</label>
+      <input class="form-input" id="organization_name" formControlName="organization_name" type="text">
     </div>
 
     <div>
-      <label for="organization_id">Organization ID:</label>
-      <input id="organization_id" formControlName="organization_id" type="text">
+      <label class="form-label" for="organization_id">Organization ID:</label>
+      <input class="form-input" id="organization_id" formControlName="organization_id" type="text">
       <div *ngIf="invalidOrganizationIdError" class="error">{{ invalidOrganizationIdError }}</div>
     </div>
   </div>
 
 
   <div>
-    <label for="designation">Designation:</label>
-    <select id="designation" formControlName="designation">
+    <label class="form-label" for="designation">Designation:</label>
+    <select class="form-input" id="designation" formControlName="designation">
       <option *ngFor="let designation of designationList$ | async" [value]="designation">
         {{ designation }}
       </option>
@@ -26,19 +25,21 @@
   </div>
 
   <div>
-    <label for="birth_date">Birth Date:</label>
-    <input id="birth_date" formControlName="birth_date" type="date">
+    <label class="form-label" for="birth_date">Birth Date:</label>
+    <input class="form-input" id="birth_date" formControlName="birth_date" type="date">
   </div>
 
-  <div>
-    <label for="city">City:</label>
-    <input id="city" formControlName="city" type="text">
+  <div class="horizontal-field-group">
+    <div>
+      <label class="form-label" for="city">City:</label>
+      <input class="form-input" id="city" formControlName="city" type="text">
+    </div>
+
+    <div>
+      <label class="form-label" for="pincode">Pincode:</label>
+      <input class="form-input" id="pincode" formControlName="pincode" type="text" maxlength="6">
+    </div>
   </div>
 
-  <div>
-    <label for="pincode">Pincode:</label>
-    <input id="pincode" formControlName="pincode" type="text" maxlength="6">
-  </div>
-
-  <button type="submit" [disabled]="form.invalid">Submit</button>
+  <button class="form-button" type="submit" [disabled]="form.invalid">Submit</button>
 </form>

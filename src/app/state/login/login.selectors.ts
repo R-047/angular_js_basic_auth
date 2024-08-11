@@ -14,3 +14,9 @@ export const selectLoginStatus = createSelector(
   selectLoginState,
   (state: LoginState) => state.status
 )
+
+export const selectUserName = createSelector(
+  selectLoginState,
+  (state: LoginState) => state.user_name
+)
+

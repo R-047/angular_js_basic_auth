@@ -1,0 +1,9 @@
+.or-separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #999; /* Light gray color for the text */
+  font-size: 14px;
+  margin: 5px 0; /* Adds space above and below the OR */
+  font-family: 'Arial', sans-serif;
+}

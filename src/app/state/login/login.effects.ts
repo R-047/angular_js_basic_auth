@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType} from '@ngrx/effects';
 import {
   formSubmitted, loginSuccess, loginFailed, userDoesNotExist,
-  redirectToHome
+  redirectToHome,
+  fetchUserName,
+  setUserName
 } from './login.actions';
 import { of, from, pipe } from 'rxjs';
 import { switchMap, map, catchError, withLatestFrom, mergeMap } from 'rxjs/operators';
@@ -11,6 +13,7 @@ import { AppState } from '../app.state';
 import { selectAuthUser } from './login.selectors';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
+import { UserIdentificationResponse } from '../../home/user-identification-response.model';
 
 
 @Injectable()
@@ -43,6 +46,15 @@ export class LoginEffects {
       )
     )
   );
+
+  fetchUserName = createEffect(() => this.actions$.pipe(
+    ofType(fetchUserName),
+    mergeMap(userInfo => from(this.userService.checkIfUserExist(userInfo)).pipe(
+      map((response: UserIdentificationResponse) => {
+          return setUserName({user_name: response.user_name});
+      }),
+    ))
+  ));
 
   redirectToSignup$ = createEffect(
     () =>

@@ -1,49 +1,62 @@
-<p>login works!</p>
+<app-brand-graphics>
 
-<form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+  <div *ngIf="userName$ | async as user_name">
+    <div *ngIf="user_name">
+      <h2 class="form-heading">Welcome Back, {{user_name}}!</h2>
+    </div>
+  </div>
+  <ng-template #elseBlock>
+    <h2 class="form-heading">Welcome Back!</h2>
+  </ng-template>
+  <form class="form-container" [formGroup]="loginForm" (ngSubmit)="onLogin()">
 
-  <div *ngIf="loginForm.get('email')?.enabled">
-    <label for="email">Email</label>
-    <input
+    <div *ngIf="loginForm.get('email')?.enabled">
+      <label class="form-label" for="email">Email</label><br>
+      <input
+      class="form-input"
       id="email"
       formControlName="email"
       type="email"
-    />
-    <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
-      A valid email is required.
+      />
+      <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+        A valid email is required.
+      </div>
     </div>
-  </div>
 
-  <div *ngIf="loginForm.get('phone_number')?.enabled">
-    <label for="phoneNumber">Phone Number</label>
-    <input
+    <div *ngIf="loginForm.get('phone_number')?.enabled">
+      <label class="form-label" for="phoneNumber">Phone Number</label><br>
+      <input
+      class="form-input"
       id="phone_number"
       formControlName="phone_number"
       type="text"
-    />
-    <div *ngIf="loginForm.get('phone_number')?.invalid && loginForm.get('phone_number')?.touched">
-      A valid phone number is required.
+      />
+      <div *ngIf="loginForm.get('phone_number')?.invalid && loginForm.get('phone_number')?.touched">
+        A valid phone number is required.
+      </div>
     </div>
-  </div>
 
 
-  <div>
-    <label for="password">Password</label>
-    <input
+    <div>
+      <label class="form-label" for="password">Password</label><br>
+      <input
+      class="form-input"
       id="password"
       formControlName="password"
       type="password"
-    />
-    <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
-      Password is required and should be at least 8 characters.
-    </div>
+      />
+      <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+        Password is required and should be at least 8 characters.
+      </div>
 
-    <div *ngIf="loginStatus$ | async as login_status">
-      <div *ngIf="login_status === 'failed'">
-        Incorrect password. Please try again
+      <div *ngIf="loginStatus$ | async as login_status">
+        <div *ngIf="login_status === 'failed'">
+          Incorrect password. Please try again
+        </div>
       </div>
     </div>
-  </div>
 
-  <button type="submit" [disabled]="loginForm.invalid">Submit</button>
-</form>
+    <button class="form-button" type="submit" [disabled]="loginForm.invalid">Submit</button>
+  </form>
+</app-brand-graphics>
+

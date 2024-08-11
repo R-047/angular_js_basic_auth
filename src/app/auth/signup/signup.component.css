@@ -1,0 +1,14 @@
+.back-icon{
+  color: #0072CE;
+  font-size: 16px;
+}
+
+.back-text{
+  color: #0072CE;
+  font-size: 16px;
+}
+
+.back-button{
+  display: flex;
+  flex-direction: row;
+}

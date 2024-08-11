@@ -1,5 +1,6 @@
 import { createAction, props } from "@ngrx/store";
 import { AuthUser } from "../../auth/auth-user.model";
+import { UserIdentifier } from "../../home/user-identifier.model";
 
 
 export const updateFormFields = createAction(
@@ -30,3 +31,14 @@ export const redirectToHome = createAction(
 export const userDoesNotExist = createAction(
   '[Login Page] User Does Not Exist'
 )
+
+export const setUserName = createAction(
+  '[Login Page] User name is set',
+  props<{user_name?: string | null}>()
+)
+
+export const fetchUserName = createAction(
+  '[Login Page] Fetching User Name',
+  props<UserIdentifier>()
+)
+

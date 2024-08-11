@@ -2,3 +2,98 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.form-container {
+  background-color: #ffffff;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    align-content: flex-start;
+    flex: 1;
+}
+
+.form-heading {
+  font-size: 21px;
+  font-weight: bold;
+  text-align: left;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+  font-family: 'Arial', sans-serif;
+}
+
+.form-input {
+  width: 100%;
+  min-width: 100%;
+  padding: 12px 16px;
+  border-radius: 20px;
+  border: 0px;
+  background-color: #f1f6fb; /* Very light blue background */
+  font-size: 16px;
+  color: #333; /* Dark gray text color */
+  font-family: 'Arial', sans-serif;
+  box-sizing: border-box;
+  outline: none;
+  display: inline-block;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 20px;
+  background-color: #f1f6fb; /* Very light blue background */
+  font-size: 16px;
+  color: #333; /* Dark gray text color */
+  font-family: 'Arial', sans-serif;
+  box-sizing: border-box;
+  border-color: #0072CE; /* Bright blue border on focus */
+  border: 1px solid #d1d1d1;
+}
+
+
+.form-button {
+  width: 100%;
+  padding: 14px 0;
+  background-color: #0072CE; /* Bright blue background */
+  color: #fff; /* White text color */
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.form-button:disabled{
+  background-color: #388de2;
+}
+
+.form-button:hover {
+  background-color: #005bb5; /* Slightly darker blue on hover */
+}
+
+.form-button:active {
+  background-color: #004494; /* Even darker blue on click */
+}
+
+.form-label {
+  font-size: 14px;
+  color: #0072CE;
+  font-weight: 600;
+  margin-bottom: 3px;
+  /* display: block; */
+  font-family: 'Arial', sans-serif;
+}
+
+.form-error {
+  font-size: 12px;
+  color: #FF4D4F; /* Bright red color for the error message */
+  margin-top: 6px;
+  display: inline-block;
+  font-family: 'Arial', sans-serif;
+}

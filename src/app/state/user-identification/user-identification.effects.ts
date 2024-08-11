@@ -11,6 +11,7 @@ import { switchMap, map, catchError, withLatestFrom, mergeMap } from 'rxjs/opera
 import { Router } from '@angular/router';
 import { UserIdentificationResponse } from '../../home/user-identification-response.model';
 import { UserService } from '../../services/user.service';
+import { setUserName } from '../login/login.actions';
 
 @Injectable()
 export class UserIdentificationEffects {
@@ -28,8 +29,7 @@ export class UserIdentificationEffects {
           email: userInfo.email,
           phone_number: userInfo.phone_number,
         };
-
-        if (response.userExist) {
+        if (response.user_exist) {
           this.router.navigate(['/auth/login'], { queryParams });
           return userExist();
         } else {
@@ -40,6 +40,7 @@ export class UserIdentificationEffects {
       catchError((error) => of(userCheckFailure({error: error.error})))  // Handle any errors
     ))
   ));
+
 }
 
 

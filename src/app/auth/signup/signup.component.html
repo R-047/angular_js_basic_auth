@@ -1,8 +1,12 @@
-<p>signup works!</p>
+<app-brand-graphics>
+  <div *ngIf="currentForm$ | async as current_form">
+    <button mat-button *ngIf="current_form === form.DETAILED_USER_INFO_FORM" (click)="goToBasicForm()"><mat-icon >arrow_back</mat-icon>back
+    </button>
+  </div>
+  <h2 class="form-heading">Create Account</h2>
+  <div *ngIf="currentForm$ | async as current_form">
+    <app-basic-signup-form *ngIf="current_form === form.BASIC_USER_INFO_FORM"></app-basic-signup-form>
 
-<div *ngIf="currentForm$ | async as current_form">
-  <app-basic-signup-form *ngIf="current_form === form.BASIC_USER_INFO_FORM"></app-basic-signup-form>
-
-  <button *ngIf="current_form === form.DETAILED_USER_INFO_FORM" (click)="goToBasicForm()">Back</button>
-  <app-detailed-signup-form *ngIf="current_form === form.DETAILED_USER_INFO_FORM"></app-detailed-signup-form>
-</div>
+    <app-detailed-signup-form *ngIf="current_form === form.DETAILED_USER_INFO_FORM"></app-detailed-signup-form>
+  </div>
+</app-brand-graphics>
