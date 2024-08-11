@@ -41,15 +41,19 @@ export class DetailedSignupFormComponent implements OnInit{
         pincode: ['', [Validators.required, Validators.maxLength(6), Validators.minLength(6), Validators.pattern('^[0-9]*$')]]
     });
 
-    console.log(this.form.get('organization.organization_name'))
     this.form.get('organization.organization_id')?.valueChanges
       .pipe(startWith(''), map(value => this.validateOrganization(value)))
+      .subscribe();
+
+    this.form.get('organization.organization_name')?.valueChanges
+      .pipe(startWith(''), map(value => this.validateOrganization(this.form.get('organization.organization_id')?.value)))
       .subscribe();
   }
 
 
   validateOrganization(id: string) {
     this.organizationsList$.subscribe(orgList => {
+      if(!id || id == '') return
       const organization = orgList.find(org => org.organization_id?.toString() === id);
       if (!organization || organization.organization_name != this.form.get('organization.organization_name')?.value) {
         this.invalidOrganizationIdError = 'Unkown organization-id';
@@ -66,13 +70,11 @@ export class DetailedSignupFormComponent implements OnInit{
       this.form.patchValue(detailedInfo)
     })
     this.form.valueChanges.subscribe(value => {
-      console.log(value)
       this.store.dispatch(updateDetailedFormFields(value));
     });
 
 
     this.form.statusChanges.subscribe(status => {
-      console.log("form status: ", status)
       this.eventFromDetailedForm.emit({key: Form.DETAILED_USER_INFO_FORM, value: status});
     });
 

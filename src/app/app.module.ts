@@ -15,14 +15,10 @@ import { signUpReducer } from './state/signup/singup.reducer';
 import { SignUpEffects } from './state/signup/signup.effects';
 import { loginReducer } from './state/login/login.reducer';
 import { LoginEffects } from './state/login/login.effects';
-import { MatDialogModule } from '@angular/material/dialog';
-import { SuccessModalComponent } from './auth/login/success-modal/success-modal.component';
-import { StatusCardComponent } from './shared/components/status-card/status-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    // SuccessModalComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +35,6 @@ import { StatusCardComponent } from './shared/components/status-card/status-card
     FormsModule,
     HomeModule,
     ReactiveFormsModule,
-    // MatDialogModule
   ],
   providers: [
   ],

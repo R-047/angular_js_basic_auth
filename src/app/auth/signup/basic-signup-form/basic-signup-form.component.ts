@@ -63,7 +63,6 @@ export class BasicSignupFormComponent implements OnInit {
     });
 
     this.userForm.statusChanges.subscribe(status => {
-      console.log("form status: ", status)
       this.eventFromBasicForm.emit({key: Form.BASIC_USER_INFO_FORM, value: status});
     });
 

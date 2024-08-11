@@ -17,7 +17,7 @@ export interface SignupState{
   allowed_organization_list: Organization[];
   designation_list: string[];
   form_submitted: boolean;
-  status_message: string; //processing, successfully registed- redirecting to login, user already exist - login
+  status_message: string; 
   error: string;
 }
 

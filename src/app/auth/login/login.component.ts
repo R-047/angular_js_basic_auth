@@ -66,10 +66,6 @@ export class LoginComponent implements OnInit, OnDestroy{
       this.store.dispatch(updateFormFields(value));
     });
 
-    this.userName$.subscribe(value => {
-      console.log("loggin in login comp: ", value)
-    })
-
     this.loginStatus$.subscribe(value => {
       if(value == 'success'){
         this.openDialog()
@@ -89,17 +85,16 @@ export class LoginComponent implements OnInit, OnDestroy{
 
     openDialog(): void {
       const dialogRef = this.dialog.open(SuccessModalComponent, {
-        width: '300px', // You can set width and other options here
-        data: { message: 'Hello from HomeComponent' }
+        width: '300px',
+        data: {}
       });
       dialogRef.afterClosed().subscribe(result => {
         this.store.dispatch(redirectToHome())
-        console.log('The dialog was closed');
       });
     }
 
     capitalizeFirstLetter(str:string):string {
-      if (!str) return str; // Return the string as is if it's empty or null
+      if (!str) return str;
         return str.charAt(0).toUpperCase() + str.slice(1);
     }
 

@@ -37,7 +37,6 @@ export class LoginEffects {
             if(!response.success){
               return userDoesNotExist()
             }
-            console.log(response)
             if(response.message){
               return loginFailed()
             }else{

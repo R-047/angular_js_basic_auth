@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 
 import { UserInfo } from '../auth/signup/user-info.model';
 import { Response } from '../shared/models/response.model';
-import { LocalStorageService } from './local-storage.service';
 import { of, delay, map, Observable } from 'rxjs';
 import { UserIdentifier } from '../home/user-identifier.model';
 import { UserIdentificationResponse } from '../home/user-identification-response.model';
@@ -15,7 +14,7 @@ import { AuthResponseModel } from '../auth/login/auth-response.model';
 })
 export class UserService {
   static readonly userDB = 'users';
-  constructor(private storageService: LocalStorageService) { }
+  constructor() { }
 
 
   loginUser(authUser: AuthUser):Observable<AuthResponseModel>{
@@ -39,7 +38,6 @@ export class UserService {
   }
 
   registerUser(userInfo: UserInfo):Observable<Response> {
-    // const users = JSON.parse(this.storageService.getItem(UserService.userDB) as string || '[]');
     const users = JSON.parse(localStorage.getItem(`${UserService.userDB}`) as string || '[]')
     const user = users.find((user: UserInfo) => (user.basic_user_info.email && user.basic_user_info.email === userInfo.basic_user_info.email)
       || (user.basic_user_info.phone_number && user.basic_user_info.phone_number === userInfo.basic_user_info.phone_number));

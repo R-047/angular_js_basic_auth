@@ -105,3 +105,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   display: inline-block;
   font-family: 'Arial', sans-serif;
 }
+
+body, html {
+  overflow: hidden;
+}

@@ -34,7 +34,6 @@ export class UserIdentificationFormComponent {
 
     }
     if (this.isFormValid()) {
-      console.log('Form Submitted!', this.userIdentifierModel); // Access form data from the model
       this.store.dispatch(identifyUser(this.userIdentifierModel))
     } else {
       alert('Please provide either an email or phone number.');

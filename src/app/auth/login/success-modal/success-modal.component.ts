@@ -25,8 +25,5 @@ export class SuccessModalComponent implements OnInit{
   }
 
   ngOnInit():void{
-    this.userDetails$.pipe(take(1)).subscribe(user_info => {
-      console.log("modal got the info", user_info)
-    })
   }
 }

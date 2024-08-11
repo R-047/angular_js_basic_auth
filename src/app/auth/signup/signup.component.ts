@@ -29,7 +29,6 @@ export class SignupComponent {
   }
 
   handleDataFromSubForms(data: { key: string, value: string }) {
-    console.log("logging in sign up page: ",data)
     this.formCompletionIndicatorState.set(data.key, data.value);
   }
 

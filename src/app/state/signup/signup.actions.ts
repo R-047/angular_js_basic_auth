@@ -7,11 +7,6 @@ import { DetailedUserInfo } from "../../auth/signup/detailed-user-info.model";
 import { UserIdentifier } from "../../home/user-identifier.model";
 
 
-// export const updateBasicFormFields = createAction(
-//   '[Signup Page] Update Basic Form Field',
-//   props<{ key: keyof SignupState['basic_user_info']; value: any }>()
-// );
-
 
 export const updateBasicFormFields = createAction(
   '[Signup Page] Update Basic Form Field',
