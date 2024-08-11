@@ -44,11 +44,16 @@ export class DetailedSignupFormComponent implements OnInit{
     this.form.get('organization.organization_id')?.valueChanges
       .pipe(startWith(null), map(value => this.validateOrganization(value)))
       .subscribe();
+
+    this.form.get('organization.organization_name')?.valueChanges
+      .pipe(startWith(''), map(value => this.validateOrganization(this.form.get('organization.organization_id')?.value)))
+      .subscribe();
   }
 
 
   validateOrganization(id: string) {
     this.organizationsList$.subscribe(orgList => {
+      if(!id || id == '') return
       const organization = orgList.find(org => org.organization_id?.toString() === id);
       if (!organization || organization.organization_name != this.form.get('organization.organization_name')?.value) {
         this.invalidOrganizationIdError = 'Unkown organization-id';
