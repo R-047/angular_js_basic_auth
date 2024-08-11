@@ -3,12 +3,12 @@
 <!-- This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.3. -->
 
 ## Setup Instructions
-#prerequisites
+### prerequisites
 - node.js
 - npm
 - nvm (node version manager) or nodist (for windows)
 
-#todos
+### todos
 1. run `nvm install 18.19.1`, and `nvm use 18.19.1` this will install the needed version among few others to set up an angular project and angular-cli.
 2. run `npm install -g npm@10.8.2`, this step mostly will not be needed, but if there are errors, mostly related to versioning, this might help.
 3. run `npm install -g @angular/cli`, this will install the angular cli, hence enabling the ng command.
