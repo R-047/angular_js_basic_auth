@@ -42,7 +42,7 @@ export class DetailedSignupFormComponent implements OnInit{
     });
 
     this.form.get('organization.organization_id')?.valueChanges
-      .pipe(startWith(null), map(value => this.validateOrganization(value)))
+      .pipe(startWith(''), map(value => this.validateOrganization(value)))
       .subscribe();
 
     this.form.get('organization.organization_name')?.valueChanges
@@ -59,6 +59,7 @@ export class DetailedSignupFormComponent implements OnInit{
         this.invalidOrganizationIdError = 'Unkown organization-id';
         this.form.get('organization.organization_id')?.setErrors({ invalidOrganization: true });
       } else {
+        this.form.get('organization.organization_id')?.setErrors(null);
         this.invalidOrganizationIdError = null;
       }
     });
@@ -75,6 +76,7 @@ export class DetailedSignupFormComponent implements OnInit{
 
 
     this.form.statusChanges.subscribe(status => {
+      console.log(status)
       this.eventFromDetailedForm.emit({key: Form.DETAILED_USER_INFO_FORM, value: status});
     });
 
