@@ -2,7 +2,7 @@
 
   <div *ngIf="userName$ | async as user_name">
     <div *ngIf="user_name">
-      <h2 class="form-heading">Welcome Back, {{user_name}}!</h2>
+      <h2 class="form-heading">Welcome Back, {{capitalizeFirstLetter(user_name)}}!</h2>
     </div>
   </div>
   <ng-template #elseBlock>
@@ -18,7 +18,7 @@
       formControlName="email"
       type="email"
       />
-      <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+      <div class="form-field-error" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
         A valid email is required.
       </div>
     </div>
@@ -31,7 +31,7 @@
       formControlName="phone_number"
       type="text"
       />
-      <div *ngIf="loginForm.get('phone_number')?.invalid && loginForm.get('phone_number')?.touched">
+      <div class="form-field-error" *ngIf="loginForm.get('phone_number')?.invalid && loginForm.get('phone_number')?.touched">
         A valid phone number is required.
       </div>
     </div>
@@ -45,12 +45,12 @@
       formControlName="password"
       type="password"
       />
-      <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+      <div class="form-field-error" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
         Password is required and should be at least 8 characters.
       </div>
 
       <div *ngIf="loginStatus$ | async as login_status">
-        <div *ngIf="login_status === 'failed'">
+        <div class="form-submission-error" *ngIf="login_status === 'failed'">
           Incorrect password. Please try again
         </div>
       </div>

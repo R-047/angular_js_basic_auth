@@ -8,7 +8,7 @@
       type="email"
       class="form-input"
     />
-    <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">
+    <div class="form-field-error" *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">
       A valid email is required.
     </div>
   </div>
@@ -21,7 +21,7 @@
       type="text"
       class="form-input"
     />
-    <div *ngIf="userForm.get('phone_number')?.invalid && userForm.get('phone_number')?.touched">
+    <div class="form-field-error" *ngIf="userForm.get('phone_number')?.invalid && userForm.get('phone_number')?.touched">
       A valid phone number is required.
     </div>
   </div>
@@ -34,7 +34,7 @@
       type="text"
       class="form-input"
     />
-    <div *ngIf="userForm.get('user_name')?.invalid && userForm.get('user_name')?.touched">
+    <div class="form-field-error" *ngIf="userForm.get('user_name')?.invalid && userForm.get('user_name')?.touched">
       Name is required and should be at least 2 characters.
     </div>
   </div>
@@ -47,7 +47,7 @@
       type="password"
       class="form-input"
     />
-    <div *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.touched">
+    <div class="form-field-error" *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.touched">
       Password is required and should be at least 8 characters.
     </div>
   </div>

@@ -29,9 +29,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   padding: 12px 16px;
   border-radius: 20px;
   border: 0px;
-  background-color: #f1f6fb; /* Very light blue background */
+  background-color: #f1f6fb;
   font-size: 16px;
-  color: #333; /* Dark gray text color */
+  color: #333;
   font-family: 'Arial', sans-serif;
   box-sizing: border-box;
   outline: none;
@@ -43,12 +43,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   width: 100%;
   padding: 12px 16px;
   border-radius: 20px;
-  background-color: #f1f6fb; /* Very light blue background */
+  background-color: #f1f6fb;
   font-size: 16px;
-  color: #333; /* Dark gray text color */
+  color: #333;
   font-family: 'Arial', sans-serif;
   box-sizing: border-box;
-  border-color: #0072CE; /* Bright blue border on focus */
+  border-color: #0072CE;
   border: 1px solid #d1d1d1;
 }
 
@@ -56,8 +56,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .form-button {
   width: 100%;
   padding: 14px 0;
-  background-color: #0072CE; /* Bright blue background */
-  color: #fff; /* White text color */
+  background-color: #0072CE;
+  color: #fff;
   font-size: 16px;
   font-weight: 600;
   border: none;
@@ -74,11 +74,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .form-button:hover {
-  background-color: #005bb5; /* Slightly darker blue on hover */
+  background-color: #005bb5;
 }
 
 .form-button:active {
-  background-color: #004494; /* Even darker blue on click */
+  background-color: #004494;
 }
 
 .form-label {
@@ -90,9 +90,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   font-family: 'Arial', sans-serif;
 }
 
-.form-error {
+.form-field-error {
   font-size: 12px;
-  color: #FF4D4F; /* Bright red color for the error message */
+  color: #FF4D4F;
+  margin-top: 6px;
+  display: inline-block;
+  font-family: 'Arial', sans-serif;
+}
+
+.form-submission-error{
+  font-size: 14px;
+  color: #FF4D4F;
   margin-top: 6px;
   display: inline-block;
   font-family: 'Arial', sans-serif;

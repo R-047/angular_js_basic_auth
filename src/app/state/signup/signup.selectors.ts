@@ -33,3 +33,9 @@ export const selectUserInfo = createSelector(
   selectSignUpState,
   (state: SignupState) => ({basic_user_info: state.basic_user_info, detailed_user_info: state.detailed_user_info})
 )
+
+
+export const selectFormSubmissionStatus = createSelector(
+  selectSignUpState,
+  (state: SignupState) => state.form_submitted
+)

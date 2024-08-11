@@ -1,12 +1,26 @@
 <app-brand-graphics>
-  <div *ngIf="currentForm$ | async as current_form">
-    <button mat-button *ngIf="current_form === form.DETAILED_USER_INFO_FORM" (click)="goToBasicForm()"><mat-icon >arrow_back</mat-icon>back
-    </button>
-  </div>
-  <h2 class="form-heading">Create Account</h2>
-  <div *ngIf="currentForm$ | async as current_form">
-    <app-basic-signup-form *ngIf="current_form === form.BASIC_USER_INFO_FORM"></app-basic-signup-form>
+  <ng-container *ngIf="formSubmissionStatus$ | async as formSubmissionStatus else showSignUpForm">
+    <app-status-card
+      [isSuccess]="true"
+      heading="Welcome to Solvei8"
+      message="Redirecting you to the Login screen. This might take a few seconds...">
+    </app-status-card>
+  </ng-container>
 
-    <app-detailed-signup-form *ngIf="current_form === form.DETAILED_USER_INFO_FORM"></app-detailed-signup-form>
-  </div>
+  <ng-template #showSignUpForm>
+    <div *ngIf="currentForm$ | async as current_form">
+      <button mat-button *ngIf="current_form === form.DETAILED_USER_INFO_FORM" (click)="goToBasicForm()"><mat-icon >arrow_back</mat-icon>back
+      </button>
+    </div>
+    <h2 class="form-heading">Create Account</h2>
+    <div class="indicator-container">
+      <div class="indicator" [ngClass]="{'indicator-active': formCompletionIndicatorState.get(form.BASIC_USER_INFO_FORM) === 'VALID', 'indicator-inactive' : formCompletionIndicatorState.get(form.BASIC_USER_INFO_FORM) === 'INVALID'}"></div>
+      <div class="indicator" [ngClass]="{'indicator-active': formCompletionIndicatorState.get(form.DETAILED_USER_INFO_FORM) == 'VALID', 'indicator-inactive' : formCompletionIndicatorState.get(form.DETAILED_USER_INFO_FORM) === 'INVALID'}"></div>
+    </div>
+    <div *ngIf="currentForm$ | async as current_form">
+      <app-basic-signup-form *ngIf="current_form === form.BASIC_USER_INFO_FORM" (eventFromBasicForm)="handleDataFromSubForms($event)"></app-basic-signup-form>
+
+      <app-detailed-signup-form *ngIf="current_form === form.DETAILED_USER_INFO_FORM" (eventFromDetailedForm)="handleDataFromSubForms($event)"></app-detailed-signup-form>
+    </div>
+  </ng-template>
 </app-brand-graphics>

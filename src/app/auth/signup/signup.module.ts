@@ -7,6 +7,7 @@ import { DetailedSignupFormComponent } from './detailed-signup-form/detailed-sig
 import { BrandGraphicsComponent } from '../../shared/components/brand-graphics/brand-graphics.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { StatusCardComponent } from '../../shared/components/status-card/status-card.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { MatButtonModule } from '@angular/material/button';
     FormsModule,
     ReactiveFormsModule,
     BrandGraphicsComponent,
+    StatusCardComponent,
     MatIconModule,
     MatButtonModule,
   ]

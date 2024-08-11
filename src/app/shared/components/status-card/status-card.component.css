@@ -1,0 +1,47 @@
+.status-card {
+  padding: 20px;
+    height: 50vh;
+    color: white;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+}
+
+h2{
+  font-family: 'Arial', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 16px;
+  /* text-transform: uppercase; */
+  /* letter-spacing: 1px; */
+}
+
+p{
+  font-family: sans-serif;
+  font-size: 16px;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.success-bg {
+  height: 100px;
+  width: 100px;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-image: url('../../../../assets/images/success.svg'); /* Update with your success image path */
+}
+
+
+.error-bg {
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-image: url('../../../../assets/images/failed.png'); /* Update with your error image path */
+}

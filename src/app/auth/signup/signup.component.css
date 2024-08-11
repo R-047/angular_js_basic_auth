@@ -12,3 +12,29 @@
   display: flex;
   flex-direction: row;
 }
+
+.indicator-container{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width: 100%;
+  height: 10px;
+  margin-bottom: 10px;
+}
+
+.indicator{
+  flex: 1;
+  height: 5px;
+  width: 100%;
+  border-radius: 10px;
+  background: #cbcbcb;
+
+}
+
+.indicator-active{
+  background: #0072CE;
+}
+
+.indicator-inactive{
+  background: #cbcbcb;
+}

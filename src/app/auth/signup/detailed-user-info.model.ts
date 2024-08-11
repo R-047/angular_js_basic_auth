@@ -5,5 +5,5 @@ export interface DetailedUserInfo{
   designation: string;
   birth_date: Date;
   city: string;
-  pincode: number;
+  pincode: number | null;
 }

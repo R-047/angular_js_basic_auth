@@ -4,7 +4,9 @@ import {
   formSubmitted, loginSuccess, loginFailed, userDoesNotExist,
   redirectToHome,
   fetchUserName,
-  setUserName
+  setUserName,
+  fetchUserDetails,
+  userDetailsLoaded
 } from './login.actions';
 import { of, from, pipe } from 'rxjs';
 import { switchMap, map, catchError, withLatestFrom, mergeMap } from 'rxjs/operators';
@@ -39,13 +41,17 @@ export class LoginEffects {
             if(response.message){
               return loginFailed()
             }else{
-              return loginSuccess()
+              return loginSuccess({
+                basic_user_info: response.basic_user_info, detailed_user_info: response.detailed_user_info
+              })
             }
           }),
         )
       )
     )
   );
+
+
 
   fetchUserName = createEffect(() => this.actions$.pipe(
     ofType(fetchUserName),
@@ -55,6 +61,7 @@ export class LoginEffects {
       }),
     ))
   ));
+
 
   redirectToSignup$ = createEffect(
     () =>

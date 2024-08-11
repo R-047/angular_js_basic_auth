@@ -20,3 +20,7 @@ export const selectUserName = createSelector(
   (state: LoginState) => state.user_name
 )
 
+export const selectUserDetails = createSelector(
+  selectLoginState,
+  (state: LoginState) => ({basic_user_info: state.basic_user_info, detailed_user_info: state.detailed_user_info})
+)

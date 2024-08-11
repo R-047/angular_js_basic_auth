@@ -31,13 +31,13 @@ export const initialSignupState: SignupState = {
   },
   detailed_user_info: {
     organization: {
-      organization_id: -1,
+      organization_id: null,
       organization_name: '',
     },
     designation: '',
     birth_date: new Date(),
     city: '',
-    pincode: -1
+    pincode: null
   },
   allowed_organization_list: [],
   designation_list: [],

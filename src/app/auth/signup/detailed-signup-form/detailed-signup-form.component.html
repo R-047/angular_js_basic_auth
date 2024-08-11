@@ -10,7 +10,7 @@
     <div>
       <label class="form-label" for="organization_id">Organization ID:</label>
       <input class="form-input" id="organization_id" formControlName="organization_id" type="text">
-      <div *ngIf="invalidOrganizationIdError" class="error">{{ invalidOrganizationIdError }}</div>
+      <div class="form-field-error" *ngIf="invalidOrganizationIdError" class="error">{{ invalidOrganizationIdError }}</div>
     </div>
   </div>
 

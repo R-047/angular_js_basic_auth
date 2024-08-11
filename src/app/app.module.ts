@@ -17,6 +17,7 @@ import { loginReducer } from './state/login/login.reducer';
 import { LoginEffects } from './state/login/login.effects';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SuccessModalComponent } from './auth/login/success-modal/success-modal.component';
+import { StatusCardComponent } from './shared/components/status-card/status-card.component';
 
 @NgModule({
   declarations: [

@@ -1,6 +1,8 @@
 import { createAction, props } from "@ngrx/store";
 import { AuthUser } from "../../auth/auth-user.model";
 import { UserIdentifier } from "../../home/user-identifier.model";
+import { UserInfo } from "../../auth/signup/user-info.model";
+import { DetailedUserInfo } from "../../auth/signup/detailed-user-info.model";
 
 
 export const updateFormFields = createAction(
@@ -13,7 +15,8 @@ export const formSubmitted = createAction(
 )
 
 export const loginSuccess = createAction(
-  '[Login Page] Login Success'
+  '[Login Page] Login Success',
+  props<{basic_user_info?: {email?:string, phone_number?: string, user_name:string}, detailed_user_info?: DetailedUserInfo }>()
 )
 
 export const loginFailed = createAction(
@@ -40,5 +43,14 @@ export const setUserName = createAction(
 export const fetchUserName = createAction(
   '[Login Page] Fetching User Name',
   props<UserIdentifier>()
+)
+
+export const fetchUserDetails = createAction(
+  '[Login Page] Fetching User Details',
+  props<UserIdentifier>()
+)
+
+export const userDetailsLoaded = createAction(
+  '[Login Page] User Details Loaded',
 )
 

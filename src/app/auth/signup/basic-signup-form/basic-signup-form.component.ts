@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, EventEmitter, Output} from '@angular/core';
 import { SignupState } from '../../../state/signup/singup.reducer';
 import { AppState } from '../../../state/app.state';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -8,6 +8,8 @@ import { showDetailedUserForm, updateBasicFormFields } from '../../../state/sign
 import { BasicUserInfo } from '../basic-user-info.model';
 import { selectBasicUserInfo } from '../../../state/signup/signup.selectors';
 import { ActivatedRoute } from '@angular/router';
+import { Form } from '../../../state/signup/singup.reducer';
+
 
 @Component({
   selector: 'app-basic-signup-form',
@@ -17,6 +19,7 @@ import { ActivatedRoute } from '@angular/router';
 export class BasicSignupFormComponent implements OnInit {
   basicUserInfo$ : Observable<BasicUserInfo> = this.store.select(selectBasicUserInfo)
   userForm: FormGroup;
+  @Output() eventFromBasicForm = new EventEmitter<{ key: string, value: string }>();
 
   constructor(
     private store: Store<AppState>,
@@ -57,6 +60,11 @@ export class BasicSignupFormComponent implements OnInit {
             this.userForm.patchValue(user_info);
           }
         });
+    });
+
+    this.userForm.statusChanges.subscribe(status => {
+      console.log("form status: ", status)
+      this.eventFromBasicForm.emit({key: Form.BASIC_USER_INFO_FORM, value: status});
     });
 
     this.userForm.valueChanges.subscribe(value => {

@@ -4,9 +4,11 @@ import { DetailedSignupFormComponent } from './detailed-signup-form/detailed-sig
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { Form } from '../../state/signup/singup.reducer';
-import { selectFormToShow } from '../../state/signup/signup.selectors';
+import { selectFormSubmissionStatus, selectFormToShow } from '../../state/signup/signup.selectors';
 import { AppState } from '../../state/app.state';
 import { showBasicUserForm } from '../../state/signup/signup.actions';
+
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -15,6 +17,8 @@ import { showBasicUserForm } from '../../state/signup/signup.actions';
 export class SignupComponent {
   form = Form
   currentForm$: Observable<Form>
+  formSubmissionStatus$: Observable<Boolean> = this.store.select(selectFormSubmissionStatus)
+  formCompletionIndicatorState = new Map<string, string>();
 
   constructor(private store: Store<AppState>) {
     this.currentForm$ = this.store.select(selectFormToShow);
@@ -22,6 +26,11 @@ export class SignupComponent {
 
   goToBasicForm(): void {
     this.store.dispatch(showBasicUserForm())
+  }
+
+  handleDataFromSubForms(data: { key: string, value: string }) {
+    console.log("logging in sign up page: ",data)
+    this.formCompletionIndicatorState.set(data.key, data.value);
   }
 
 }

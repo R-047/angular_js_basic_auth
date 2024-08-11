@@ -8,6 +8,7 @@ import { UserIdentifier } from '../home/user-identifier.model';
 import { UserIdentificationResponse } from '../home/user-identification-response.model';
 import { userExist } from '../state/user-identification/user-identification.actions';
 import { AuthUser } from '../auth/auth-user.model';
+import { AuthResponseModel } from '../auth/login/auth-response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class UserService {
   constructor(private storageService: LocalStorageService) { }
 
 
-  loginUser(authUser: AuthUser):Observable<Response>{
+  loginUser(authUser: AuthUser):Observable<AuthResponseModel>{
     const users = JSON.parse(localStorage.getItem(`${UserService.userDB}`) as string || '[]')
     const user = users.find((user: UserInfo) => (user.basic_user_info.email && user.basic_user_info.email === authUser.email)
       || (user.basic_user_info.phone_number && user.basic_user_info.phone_number === authUser.phone_number));
@@ -25,7 +26,12 @@ export class UserService {
       return of({success: false, error: "user already exist"}).pipe(delay(2000))
     }
     if(user.basic_user_info.password === authUser.password){
-      return of({success: true, error: ""}).pipe(delay(2000))
+      return of({
+        success: true,
+        error: "",
+        basic_user_info: {email: user.basic_user_info.email, phone_number: user.basic_user_info.phone_number, user_name: user.basic_user_info.user_name},
+        detailed_user_info: user.detailed_user_info
+      }).pipe(delay(2000))
     }else{
       return of({success: true, error: "", message: "Incorrect password, please try again"}).pipe(delay(2000))
     }

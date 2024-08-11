@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { selectAllowedOrganizations, selectDesignations, selectDetailedUserInfo } from '../../../state/signup/signup.selectors';
 import { AppState } from '../../../state/app.state';
@@ -7,6 +7,7 @@ import { loadOrganizationDetails, registerUser, updateDetailedFormFields } from 
 import { Observable, startWith, map, take  } from 'rxjs';
 import { Organization } from '../organization.model';
 import { DetailedUserInfo } from '../detailed-user-info.model';
+import { Form } from '../../../state/signup/singup.reducer';
 
 @Component({
   selector: 'app-detailed-signup-form',
@@ -19,6 +20,7 @@ export class DetailedSignupFormComponent implements OnInit{
   organizationsList$: Observable<Organization[]>;
   invalidOrganizationIdError:string | null = null
   detailedUserInfo$: Observable<DetailedUserInfo>;
+  @Output() eventFromDetailedForm = new EventEmitter<{ key: string, value: string }>();
 
 
   constructor(
@@ -48,7 +50,7 @@ export class DetailedSignupFormComponent implements OnInit{
 
   validateOrganization(id: string) {
     this.organizationsList$.subscribe(orgList => {
-      const organization = orgList.find(org => org.organization_id.toString() === id);
+      const organization = orgList.find(org => org.organization_id?.toString() === id);
       if (!organization || organization.organization_name != this.form.get('organization.organization_name')?.value) {
         this.invalidOrganizationIdError = 'Unkown organization-id';
         this.form.get('organization.organization_id')?.setErrors({ invalidOrganization: true });
@@ -68,7 +70,14 @@ export class DetailedSignupFormComponent implements OnInit{
       this.store.dispatch(updateDetailedFormFields(value));
     });
 
+
+    this.form.statusChanges.subscribe(status => {
+      console.log("form status: ", status)
+      this.eventFromDetailedForm.emit({key: Form.DETAILED_USER_INFO_FORM, value: status});
+    });
+
   }
+
 
 
 

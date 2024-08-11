@@ -1,8 +1,16 @@
-<p>success-modal works!</p>
-<h2 mat-dialog-title>Example Dialog</h2>
-<mat-dialog-content>
-  <p>This is an example of a modal dialog in Angular Material.</p>
-</mat-dialog-content>
-<mat-dialog-actions>
-  <button mat-button mat-dialog-close>Close</button>
-</mat-dialog-actions>
+<div *ngIf="userDetails$ | async as userInfo">
+  <h2 mat-dialog-title>{{userInfo.basic_user_info?.user_name}}</h2>
+  <mat-dialog-content>
+      <p *ngIf="userInfo.basic_user_info?.email"><strong>Email:</strong> {{ userInfo.basic_user_info?.email }}</p>
+      <p *ngIf="userInfo.basic_user_info?.phone_number"><strong>Phone Number:</strong> {{ userInfo.basic_user_info?.phone_number }}</p>
+      <p><strong>Date Of Brith:</strong> {{ userInfo.detailed_user_info?.birth_date }}</p>
+      <p><strong>Organization Name:</strong> {{ userInfo.detailed_user_info?.organization?.organization_name }}</p>
+      <p><strong>Organization Id:</strong> {{ userInfo.detailed_user_info?.organization?.organization_id }}</p>
+      <p><strong>Designation: </strong> {{ userInfo.detailed_user_info?.designation }}</p>
+      <p><strong>City: </strong> {{ userInfo.detailed_user_info?.city }}</p>
+      <p><strong>Pincode: </strong> {{ userInfo.detailed_user_info?.pincode }}</p>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button class="modal-button" mat-button mat-dialog-close>Close</button>
+  </mat-dialog-actions>
+</div>
