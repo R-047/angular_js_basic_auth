@@ -76,7 +76,6 @@ export class DetailedSignupFormComponent implements OnInit{
 
 
     this.form.statusChanges.subscribe(status => {
-      console.log(status)
       this.eventFromDetailedForm.emit({key: Form.DETAILED_USER_INFO_FORM, value: status});
     });
 
